@@ -45,9 +45,6 @@ export const getUserMentions = async (sinceId) => {
 			hasNextPage = false;
 		}
 	}
-	console.dir(userMentions, {
-		depth: null
-	});
 	for (const mention of userMentions) {
 		if (mention.text.includes('amplify') && mention.referenced_tweets && mention.referenced_tweets.length > 0)
 		twit.post('statuses/retweet/:id', { id: mention.referenced_tweets[0].id }, function (err, data, response) {
@@ -98,9 +95,6 @@ export const getUserTweets = async () => {
 		}
 	}
 	
-	console.dir(userTweets, {
-		depth: null
-	});
 	await getUserMentions(userTweets[0].created_at)
 	console.log(`Got ${userTweets.length} Tweets from ${userName} (user ID ${coviResId})!`);
 	
