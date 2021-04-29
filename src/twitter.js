@@ -49,7 +49,7 @@ export const getUserMentions = async (sinceId) => {
 		depth: null
 	});
 	for (const mention of userMentions) {
-		if (mention.text.includes('working') && mention.referenced_tweets && mention.referenced_tweets.length > 0)
+		if (mention.text.includes('amplify') && mention.referenced_tweets && mention.referenced_tweets.length > 0)
 		twit.post('statuses/retweet/:id', { id: mention.referenced_tweets[0].id }, function (err, data, response) {
 			console.log('retweeted', mention.referenced_tweets[0].id);
 		})
