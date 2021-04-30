@@ -19,7 +19,7 @@ const options = {
 export const getUserMentions = async (sinceId) => {
 	let userMentions = [];
 	let params = {
-		"max_results": 100,
+		"max_results": 5,
 		"tweet.fields": "created_at",
 		"expansions": 'referenced_tweets.id',
 		start_time: sinceId
